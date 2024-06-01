@@ -24,7 +24,7 @@ Run the program
 ## Directory Structure
     vtok
     ├── VIDEOS -> Final videos saved here
-    ├── app -> Contains main.py
+    ├── app -> Contains main.py, fullmatch_split.py and edit.py
     │   ├── node_modules
     │   └── web 
     ├── match_clip -> Full match is downloaded here
@@ -38,4 +38,4 @@ Run the program
 **fullmatch_split.py** uses **pyscenedetect** to split the match into individual clips, then uses **OpenCV** to extract the middle frame of each clip, which is passed into **EasyOCR** to check for the presence of the word 'replay', 'clutch', or 'ace' in the frame. Valid videos are then passed into **edit.py** which converts them into a mobile-friendly video using **ffmpeg** and **Moviepy**.
 
 ## Sample Output
-<video src="demo.mp4" width="320" height="480" controls></video>
+<video src="https://github.com/Techie-Ernie/vtok/assets/80609056/2a631b4b-0937-4345-b779-ef3e9d475390" width="320" height="480" controls></video>
