@@ -1,0 +1,9 @@
+easyocr==1.7.1
+Eel==0.16.0
+ffmpeg_python==0.2.0
+moviepy==1.0.3
+opencv_contrib_python==4.8.1.78
+opencv_python==4.8.1.78
+opencv_python_headless==4.8.0.74
+scenedetect==0.6.3
+yt_dlp==2023.12.30

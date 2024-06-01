@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html data-theme="dark">
+
+<head>
+    <div>
+        <title>VTok 1.0</title>
+
+    </div>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Include eel.js - note this file doesn't exist in the 'web' directory -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="/eel.js"></script>
+    <script type="text/javascript">
+        function check() {
+            console.log(document.getElementById("myCheck").checked)
+        }
+        function showInfo(show) {
+            if (show) {
+                document.getElementById('overlayInfo').style.display = "inline";
+            }
+            else {
+                document.getElementById('overlayInfo').style.display = "none";
+
+            }
+        }
+        $(function () {
+            $("#btn").click(function () {
+
+                eel.get_match_name($("#inp").val())().then(function (out) {
+                    document.getElementById('console_output').innerHTML += "Downloading <strong>" + out + "<strong>, please wait... <br>"
+                });
+                eel.get_match_link($("#inp").val())().then(function (out) {
+                    document.getElementById('console_output').innerHTML += out
+                });
+
+                eel.get_video_parameters($("#start_time").val(), $("#end_time").val())().then(function (out) {
+                    document.getElementById('console_output').innerHTML += out
+                });
+                eel.detect_scenes(document.getElementById("myCheck").checked, $("#inp").val())().then(function (out) {
+                    document.getElementById('console_output').innerHTML += out
+                });
+
+
+
+            });
+            $("#tiktok_login").click(function () {
+                eel.tiktok_login()
+            });
+        });
+
+    </script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
+</head>
+
+<section class="hero is-danger">
+
+
+
+    <div class="hero-body">
+        <div class="columns is-vcentered">
+            <div class='column is-flex'>
+                <div>
+                    <p class="title">VTok 1.0</p>
+                    <p class="subtitle">Extract your favourite VCT Clips</p>
+                </div>
+
+            </div>
+            <div class="column is-flex">
+                <img src="https://cdn.icon-icons.com/icons2/3915/PNG/512/valorant_logo_icon_249288.png" , height="150" ,
+                    width="150">
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<body>
+
+    <section class="section">
+        <div class="container">
+
+            <div class="mb-4">
+                <p> Match link </p>
+                <input required class="input mb-4 is-rounded" type="text" id='inp' placeholder="Match link" />
+                <p> Start Time </p>
+                <input required class="input mb-4 is-rounded" type="text" id='start_time' placeholder="HH:MM:SS" />
+                <p> End Time </p>
+                <input required class="input mb-4 is-rounded" type="text" id='end_time' placeholder="HH:MM:SS" />
+                <input required type="checkbox" onclick="showInfo(true)" id='myCheck' />
+
+                Custom overlay
+                <article class="message is-info overlay" style="display:none" id="overlayInfo">
+                    <div class="message-header">
+                        <p>Overlay Info</p>
+                        <button class="delete" aria-label="delete" onclick="showInfo(false)"></button>
+                    </div>
+                    <div class="message-body">
+                        To use overlays, edit the file <strong>overlay_template.xcf or overlay_template.png</strong> in
+                        the overlays folder and rename your overlay to overlay.png.
+                    </div>
+                </article>
+                <br>
+                <input class="button" type="submit" id='btn' value="Submit" />
+
+            </div>
+
+            <article class="message">
+                <div class="message-header">
+                    <p>Console Output</p>
+
+                </div>
+                <div class="message-body" id="console_output">
+
+                </div>
+            </article>
+        </div>
+    </section>
+</body>
+
+</html>
