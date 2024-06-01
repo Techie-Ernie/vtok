@@ -38,3 +38,4 @@ Run the program
 **fullmatch_split.py** uses **pyscenedetect** to split the match into individual clips, then uses **OpenCV** to extract the middle frame of each clip, which is passed into **EasyOCR** to check for the presence of the word 'replay', 'clutch', or 'ace' in the frame. Valid videos are then passed into **edit.py** which converts them into a mobile-friendly video using **ffmpeg** and **Moviepy**.
 
 ## Sample Output
+<video src="/mnt/d/vtok/VIDEOS/PRX vs. G2 - VCT Masters Shanghai - Playoffs - Map 1_2_out.mp4" width="320" height="480" controls></video>
