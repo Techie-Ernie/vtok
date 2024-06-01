@@ -88,7 +88,7 @@ def delete_short_videos(folder_path, duration_min=8, duration_max=30):
             result = reader.readtext(image)
             result = str(result).lower()
             print(result)
-            keywords = ['clutch', 'ulutch', 'ace', 'replay', 'thrifty']
+            keywords = ['clutch', 'ulutch', 'ace', 'replay', 'thrifty'] # It's 'ulutch' because it somehow saw that on Mindfreak's clutch against LOUD on Sunset 
             contains_keywords = any(word in result for word in keywords)
             print(contains_keywords)
             if not contains_keywords:

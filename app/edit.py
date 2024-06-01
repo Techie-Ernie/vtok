@@ -13,7 +13,7 @@ def make_video(match_name, input_file, count, overlay=False):
     print(name)
     ffmpeg.output(background_stream, f"../match_clip/clips/{name}_bg.mp4").run()
     small = mp.VideoFileClip(input_file)
-    if small.duration >= 7:
+    if small.duration >= 8: 
         if overlay:
             bg = mp.ImageClip(f'{overlay_img_path}').set_duration(small.duration)
             small =  small.set_position((-400, 420)) # Set position on screen 

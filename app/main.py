@@ -3,7 +3,6 @@ import os
 import sys
 import glob
 import shutil
-sys.path.append('../')
 from fullmatch_split import download_match, scene_detect, match_name, trim_video, delete_short_videos, make_video
 
 # Set web files folder
@@ -41,6 +40,9 @@ def detect_scenes(overlay, link):
     
     return "Done detecting scenes! Videos can be found in VIDEOS folder"
 
+
+
+# Tiktok Upload Code, not working
 '''
 def upload_videos():
     if os.path.isfile('../TiktokAutoUploader/CookiesDir/tiktok_session-user.cookie'):
